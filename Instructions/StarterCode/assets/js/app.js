@@ -37,4 +37,15 @@ d3.csv("assets/data/data.csv").then(function(data){
     // Adding Axes to the chart
     chartGroup.append("g").attr("tranform", `translate (0, ${height})`).call(xAxis);
     chartGroup.append("g").call(yAxis);
+
+    // Creating circles
+    var circles = chartGroup.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xAxisScale(d.poverty))
+        .attr("cy", d => yAxisScale(d.healthcare))
+        .attr("r", "15")
+        .attr("fill", "pink")
+        .attr("opacity", ".5");
 })
