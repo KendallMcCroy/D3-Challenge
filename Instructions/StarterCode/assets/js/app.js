@@ -58,4 +58,11 @@ d3.csv("assets/data/data.csv").then(function(data){
 
     // Adding tool tip to the chart
     chartGroup.call(toolTip)
+
+    // Creating a html listeners to diplay and hide the tooltip
+    circles.on("mouseover", function(data, index){
+        toolTip.show(data, this);
+    }).on("mouseout", function(data, index){
+        toolTip.hide(data);
+    });
 })
