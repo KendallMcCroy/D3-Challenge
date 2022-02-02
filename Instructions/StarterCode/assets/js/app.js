@@ -48,4 +48,14 @@ d3.csv("assets/data/data.csv").then(function(data){
         .attr("r", "15")
         .attr("fill", "pink")
         .attr("opacity", ".5");
+
+    var toolTip = d3.tip()
+        .attr("class", "tooltip")
+        .offset([80, -60])
+        .html(function(d){
+            return (`${d.state}<br>poverty: ${d.poverty}<br>healthcare: ${d.healthcare}`);
+        });
+
+    // Adding tool tip to the chart
+    chartGroup.call(toolTip)
 })
