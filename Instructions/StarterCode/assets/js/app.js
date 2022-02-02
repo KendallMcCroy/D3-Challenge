@@ -7,12 +7,11 @@ d3.csv("assets/data/data.csv").then(function(data){
     })
 
     // Create scale for x axis
-    var xAxisScale = d3.scaleLinear()
-        .domain([8, d3.max(data, d => d.poverty)])
-        .range([0, width]);
+    var xAxisScale = d3.scaleLinear().domain([8, d3.max(data, d => d.poverty)]).range([0, width]);
 
     // Create scale for y axis
-    var yAxisScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.healthcare)])
-        .range([height, 0]);
+    var yAxisScale = d3.scaleLinear().domain([0, d3.max(data, d => d.healthcare)]).range([height, 0]);
+
+    var xAxis = d3.axisBottom(xAxisScale)
+    var yAxis = d3.axisLeft(yAxisScale)
 })
