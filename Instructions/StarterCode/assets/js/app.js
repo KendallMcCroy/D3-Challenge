@@ -65,4 +65,16 @@ d3.csv("assets/data/data.csv").then(function(data){
     }).on("mouseout", function(data, index){
         toolTip.hide(data);
     });
+
+    // Adding state labels to the circles
+    var circleLabels = chartGroup.selectAll(null).data(data).enter().append("text");
+
+    circleLabels.attr("x", d => xAxisScale(d.poverty) - 9)
+        .attr("y", d => yAxisScale(d.healthcare) + 5)
+        .text(function(d) { return d.abbr; })
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "12px")
+        .attr("fill", "black");
+
+    
 })
