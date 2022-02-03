@@ -46,8 +46,8 @@ d3.csv("assets/data/data.csv").then(function(data){
         .attr("cx", d => xAxisScale(d.poverty))
         .attr("cy", d => yAxisScale(d.healthcare))
         .attr("r", "15")
-        .attr("fill", "pink")
-        .attr("opacity", ".5");
+        .attr("fill", "lightblue")
+        .attr("opacity", ".8");
 
     var toolTip = d3.tip()
         .attr("class", "tooltip")
@@ -74,7 +74,7 @@ d3.csv("assets/data/data.csv").then(function(data){
         .text(function(d) { return d.abbr; })
         .attr("font-family", "sans-serif")
         .attr("font-size", "12px")
-        .attr("fill", "black");
+        .attr("fill", "white");
 
     // Adding labels
     chartGroup.append("text")
@@ -83,11 +83,11 @@ d3.csv("assets/data/data.csv").then(function(data){
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .attr("class", "axisText")
-        .text("Lack Healthcare (%)");
+        .text("Lacks Healthcare (%)");
 
     chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
-        .attr("y", 0 - margin.left + 40)
+        .attr("y", 0 - margin.bottom + 40)
         .attr("class", "axisText")
         .text("In Poverty (%)");
 }).catch(function(error){
